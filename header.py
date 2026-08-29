@@ -7,8 +7,8 @@ class header:
     def __init__(self):
         #Default values pre-set
         self.image="icones/logo_falsa.jpeg"
-        self.menu = ["Home","Sobre", "Contato"]
-        self.menu_selecionado = "Home"
+        self.menu = ["Pagina_Inicial","Sobre", "Contato"]
+        self.menu_selecionado = "Pagina_Inicial"
         self.titulo = "solutech"
     #config of the header for view
     def header_view(self):
