@@ -1,5 +1,5 @@
 import streamlit as st
-import cabecalho
+from header import header
 
-cabecalho = cabecalho.Cabecalho()
-cabecalho.configurar_cabecalho() 
+header = header()
+header.header_view()
