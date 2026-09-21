@@ -13,6 +13,6 @@ document.getElementById(elementId).innerHTML = htmlData;
 
 // Carrega o cabeçalho e o rodapé quando a página é carregada
 document.addEventListener('DOMContentLoaded', () => {
-loadComponent('header', 'pages/header.html');
-loadComponent('footer', 'pages/footer.html');
+loadComponent('header', 'header.html');
+loadComponent('footer', 'footer.html');
 });
