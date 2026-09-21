@@ -1,76 +1,121 @@
-/* Estilos para o site */
-/*variaveis globais*/
+/* 1. Variáveis globais */
 :root {
---bg-dark: #030712; /* Fundo quase preto */
---card-bg: #0b0f19; /* Fundo dos cartões */
---cyan-neon: #00f3ff; /* Luz Turquesa */
---purple-neon: #bc13fe; /* Luz Roxa */
---text-color: #f3f4f6; /* Texto claro */
+  --bg-dark: #030712;      /* Fundo quase preto */
+  --card-bg: #0b0f19;      /* Fundo dos cartões */
+  --cyan-neon: #00f3ff;    /* Luz Turquesa */
+  --purple-neon: #bc13fe;  /* Luz Roxa */
+  --text-color: #f3f4f6;   /* Texto claro */
 }
+
 /* 2. Configuração geral do corpo da página */
 body {
-margin: 0;
-background-color: var(--bg-dark);
-color: var(--text-color);
-font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 /* 3. Título principal com iluminação Neon (Brilho Cyan) */
 .neon-text {
-color: #ffffff;
-text-shadow: 0 0 5px var(--cyan-neon), 0 0 15px var(--cyan-neon);
+  color: #ffffff;
+  text-shadow: 0 0 5px var(--cyan-neon), 0 0 15px var(--cyan-neon);
 }
+
 /* 4. Cabeçalho fixo com visual tecnológico transparente */
 header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 15px 30px;
-background: rgba(11, 15, 25, 0.8);
-border-bottom: 1px solid rgba(0, 243, 255, 0.3);
-backdrop-filter: blur(10px); /* Efeito de Vidro Fosco */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: rgba(11, 15, 25, 0.85);
+  border-bottom: 1px solid rgba(0, 243, 255, 0.3);
+  backdrop-filter: blur(10px); /* Efeito de Vidro Fosco */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
-/* 5. Links e Botões do Menu com Brilho ao passar o mouse */
+
+/* Estilização da Logo e Nome da Empresa */
+header .logo img {
+  max-height: 40px; /* Ajuste a altura da sua logo */
+  width: auto;
+  display: block;
+}
+
+header .company-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+header .company-name .highlight {
+  color: var(--cyan-neon);
+  text-shadow: 0 0 8px var(--cyan-neon);
+}
+
+/* 5. Menu de Navegação */
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 15px; /* Espaçamento entre os botões */
+  align-items: center;
+}
+
+nav li {
+  margin: 0;
+}
+
+/* Links e Botões do Menu com Brilho ao passar o mouse */
 nav a, .btn-neon {
-color: var(--text-color);
-text-decoration: none;
-padding: 8px 16px;
-border: 1px solid rgba(188, 19, 254, 0.4);
-border-radius: 4px;
-transition: all 0.3s ease;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid rgba(188, 19, 254, 0.4);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  display: inline-block;
 }
+
 /* Efeito ao passar o mouse (Hover) */
 nav a:hover, .btn-neon:hover {
-border-color: var(--cyan-neon);
-color: var(--cyan-neon);
-box-shadow: 0 0 10px var(--cyan-neon); /* Glow em volta do botão */
+  border-color: var(--cyan-neon);
+  color: var(--cyan-neon);
+  box-shadow: 0 0 10px var(--cyan-neon); /* Glow em volta do botão */
 }
+
 /* 6. Cartão de Serviços com Borda Iluminada */
 .service-card {
-background: var(--card-bg);
-border: 1px solid #1f2937;
-border-left: 4px solid var(--purple-neon);
-padding: 20px;
-border-radius: 8px;
-margin-bottom: 15px;
-transition: transform 0.2s ease;
+  background: var(--card-bg);
+  border: 1px solid #1f2937;
+  border-left: 4px solid var(--purple-neon);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: transform 0.2s ease;
 }
+
 .service-card:hover {
-transform: translateY(-3px);
-box-shadow: 0 0 15px rgba(188, 19, 254, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(188, 19, 254, 0.25);
 }
+
 /* 7. Estilização dos campos de formulário */
 .neon-form input, .neon-form textarea {
-width: 100%;
-background: #030712;
-border: 1px solid #374151;
-color: #ffffff;
-padding: 10px;
-margin-bottom: 12px;
-border-radius: 4px;
+  width: 100%;
+  background: #030712;
+  border: 1px solid #374151;
+  color: #ffffff;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 4px;
 }
-/* Destaque quando o usuário clica no campo */
+
 .neon-form input:focus, .neon-form textarea:focus {
-outline: none;
-border-color: var(--cyan-neon);
-box-shadow: 0 0 8px var(--cyan-neon);
+  outline: none;
+  border-color: var(--cyan-neon);
+  box-shadow: 0 0 8px var(--cyan-neon);
 }
