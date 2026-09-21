@@ -1,0 +1,126 @@
+<!-- Define o tipo do documento como HTML5 para o navegador saber como interpretá-lo -->
+<!DOCTYPE html>
+
+<!-- Tag principal que envolve todo o conteúdo do site; 'lang="pt-br"' define o idioma principal como Português do Brasil -->
+<html lang="pt-br"> 
+
+<head>
+    <!-- Define a codificação de caracteres como UTF-8, permitindo acentos, ç, e caracteres especiais -->
+    <meta charset="UTF-8">
+    
+    <!-- Garante a responsividade em telas de celulares e tablets (ajusta a largura da página à tela do dispositivo) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título da página que aparece na aba do navegador -->
+    <title>Solutech - Serviços</title>
+    
+    <!-- Importa o seu arquivo CSS externo local para estilização gráfica (cores, fontes, layouts) -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Importa a biblioteca FontAwesome via CDN para permitir o uso de ícones no site -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Cabeçalho principal da página (geralmente contém a logo e o menu de navegação) -->
+    <header id="header">
+        
+    </header>
+
+    <!-- Título principal do conteúdo desta página (Hierarquia H1) -->
+    <h1>Nossos Serviços</h1>
+
+    <!-- Div container principal para agrupar todos os blocos de serviços -->
+    <div class="services">
+        
+        <!-- Div que representa um cartão ou seção específica de serviço -->
+        <div class="service">
+            <!-- Ícone da biblioteca FontAwesome (ícone de notebook/código) -->
+            <i class="fas fa-laptop-code"></i>
+            
+            <!-- Título secundário do serviço principal -->
+            <h2>Desenvolvimento de Software</h2>
+            
+            <!-- Container reservado para exibição da imagem ilustrativa do serviço -->
+            <div class="image_ilustrate">
+                <img src="icons/serviços/dev.png" alt="Desenvolvimento de Software">
+            </div>
+
+            <!-- Subtítulo de categoria interna de serviço -->
+            <h3>Desenvolvimento Web</h3>
+            <p>
+                Criação de sites pessoais e ecommerce.
+                preço: A partir de R$ 500,00
+            </p>
+            <p>
+                Criação de scripts de automação para tarefas repetitivas.
+                preço: A partir de R$ 220,00
+            </p>
+
+            <h2>Manutenção de Computadores</h2>
+            <div class="image_ilustrate">
+                <img src="icons/serviços/pc.png" alt="Manutenção de Computadores">
+
+            </div>
+            <p>
+                Manutenção de computadores e notebooks.
+                preço: A partir de R$ 150,00
+            </p>
+            <p>
+                Formatação de computadores e notebooks.
+                preço: A partir de R$ 100,00
+            </p> 
+            <p>
+                Instalação de sistemas operacionais e programas.
+                preço: A partir de R$ 50,00
+            </p>
+            <p>
+                upgrade de hardware
+                preço: A partir de R$ 70,00.
+                Mas caso a peça seja comprada conosco, 
+                o serviço será gratuito.
+            </p>
+
+            <h2>Manutenção de Impressoras</h2>
+            <div class="image_ilustrate">
+                <img src="icons/serviços/impressora.png" alt="Manutenção de Impressoras">
+            </div>
+            <p>
+                Manutenção de impressoras.
+                preço: A partir de R$ 100,00
+            </p>
+            <p>
+                Instalação de impressoras.
+                preço: A partir de R$ 50,00
+            </p>
+
+            <h2>Contratos de prioridade</h2>
+            <p>
+                Contratos de prioridade 
+                para manutenção de computadores e notebooks.
+                preço: A partir de R$ 100,00/mês
+            </p>
+            <p>
+                Contratos de prioridade 
+                para manutenção de impressoras.
+                preço: A partir de R$ 50,00/mês
+            </p>
+            <p>
+                Contrato para cuidar do TI de sua empresa, 
+                garantindo que todos os computadores, 
+                notebooks e impressoras estejam funcionando 
+                Corretamente.
+                preço: A partir de R$ 500,00/mês
+            </p>
+        </div> <!-- Fechamento da div .service -->
+
+    </div> <!-- Fechamento da div .services -->
+
+    <!-- Rodapé principal da página -->
+    <footer id="footer">
+        
+    </footer>
+    <script src="js/components.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
