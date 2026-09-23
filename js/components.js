@@ -1,29 +1,28 @@
+// Function para carregar um componente via fetch
 function loadComponent(elementId, filePath) {
-  // Requisição para buscar o arquivo especificado
-  fetch(filePath)
-    // Converte a resposta para texto
+  return fetch(filePath)
     .then(response => {
-      if (!response.ok) {
-        throw new Error(`Erro de rede ao carregar ${filePath}: status ${response.status}`);
-      }
+      if (!response.ok) throw new Error(`Erro ao carregar ${filePath}`);
       return response.text();
     })
-    // Pega o elemento pelo ID e injeta o HTML dentro dele
     .then(htmlData => {
       const element = document.getElementById(elementId);
       if (element) {
         element.innerHTML = htmlData;
       }
-    })
-    // Caso ocorra algum erro, exibe no console
-    .catch(error => console.error('Erro ao carregar componente:', error));
+    });
 }
 
-// Carrega o cabeçalho e o rodapé quando o DOM estiver totalmente carregado
+// Quando o DOM estiver pronto, carrega header e footer
 document.addEventListener('DOMContentLoaded', () => {
-  
-  loadComponent('header', 'js/header.html');
-  loadComponent('footer', 'js/footer.html');
-
-  
+  // Promise.all espera AMBOS o header e footer terminarem de carregar
+  Promise.all([
+    loadComponent('header', 'header.html'),
+    loadComponent('footer', 'footer.html')
+  ])
+  .then(() => {
+    // Dispara um aviso para todo o navegador avisando que os componentes estão prontos
+    window.dispatchEvent(new CustomEvent('componentsLoaded'));
+  })
+  .catch(error => console.error('Erro ao carregar componentes:', error));
 });
