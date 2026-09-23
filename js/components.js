@@ -17,8 +17,8 @@ function loadComponent(elementId, filePath) {
 document.addEventListener('DOMContentLoaded', () => {
   // Promise.all espera AMBOS o header e footer terminarem de carregar
   Promise.all([
-    loadComponent('header', 'header.html'),
-    loadComponent('footer', 'footer.html')
+    loadComponent('header', '/js/header.html'),
+    loadComponent('footer', '/js/footer.html')
   ])
   .then(() => {
     // Dispara um aviso para todo o navegador avisando que os componentes estão prontos

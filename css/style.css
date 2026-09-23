@@ -1,13 +1,17 @@
-/* 1. Variáveis globais */
+/* ==========================================================================
+   1. VARIÁVEIS GLOBAIS (Paleta Cyberpunk / Neon)
+   ========================================================================== */
 :root {
-  --bg-dark: #030712;      /* Fundo quase preto */
-  --card-bg: #0b0f19;      /* Fundo dos cartões */
-  --cyan-neon: #00f3ff;    /* Luz Turquesa */
-  --purple-neon: #bc13fe;  /* Luz Roxa */
-  --text-color: #f3f4f6;   /* Texto claro */
+  --bg-dark: #030712;      /* Fundo principal da página (quase preto) */
+  --card-bg: #0b0f19;      /* Fundo para cartões e containers */
+  --cyan-neon: #00f3ff;    /* Luz Turquesa primária */
+  --purple-neon: #bc13fe;  /* Luz Roxa secundária */
+  --text-color: #f3f4f6;   /* Cor do texto geral (claro) */
 }
 
-/* 2. Configuração geral do corpo da página */
+/* ==========================================================================
+   2. ESTILOS BASE DO DOCUMENTO
+   ========================================================================== */
 body {
   margin: 0;
   background-color: var(--bg-dark);
@@ -15,18 +19,22 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* 3. Título principal com iluminação Neon (Brilho Cyan) */
+/* Título principal com iluminação Neon (Brilho Cyan) */
 .neon-text {
   color: #ffffff;
   text-shadow: 0 0 5px var(--cyan-neon), 0 0 15px var(--cyan-neon);
 }
 
-/* 4. Cabeçalho fixo com visual tecnológico transparente */
+/* ==========================================================================
+   3. CABEÇALHO (HEADER) E LOGO
+   ========================================================================== */
+/* Container principal do header (Fixo no topo com vidro fosco) */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
+  padding: 12px 30px;
+  min-height: 70px; /* GARANTE ALTURA MÍNIMA: Evita que o header "soma" se estiver vazio */
   background: rgba(11, 15, 25, 0.85);
   border-bottom: 1px solid rgba(0, 243, 255, 0.3);
   backdrop-filter: blur(10px); /* Efeito de Vidro Fosco */
@@ -35,32 +43,37 @@ header {
   z-index: 1000;
 }
 
-/* Estilização da Logo e Nome da Empresa */
-header .logo img {
-  max-height: 40px; /* Ajuste a altura da sua logo */
-  width: auto;
-  display: block;
+/* Agrupamento da Logo e Nome no Header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Espaço entre a logo e o texto */
 }
 
-header .company-name {
-  font-size: 1.5rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-  color: #ffffff;
+/* FIX TAMANHO DA LOGO: Evita que a imagem da logo fique gigante */
+.header img, 
+header img {
+  width: 40px;            /* Largura fixa da logo */
+  height: 40px;           /* Altura fixa */
+  object-fit: contain;    /* Mantém a proporção da logo sem distorcer */
+  transition: filter 0.3s ease;
 }
 
-header .company-name .highlight {
-  color: var(--cyan-neon);
-  text-shadow: 0 0 8px var(--cyan-neon);
+/* Efeito Glow Neon na Logo ao passar o mouse */
+.header img:hover,
+header img:hover {
+  filter: drop-shadow(0 0 8px var(--cyan-neon));
 }
 
-/* 5. Menu de Navegação */
+/* ==========================================================================
+   4. MENU DE NAVEGAÇÃO
+   ========================================================================== */
 nav ul {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 15px; /* Espaçamento entre os botões */
+  gap: 15px;
   align-items: center;
 }
 
@@ -68,7 +81,7 @@ nav li {
   margin: 0;
 }
 
-/* Links e Botões do Menu com Brilho ao passar o mouse */
+/* Botões do Menu com borda e transição */
 nav a, .btn-neon {
   color: var(--text-color);
   text-decoration: none;
@@ -80,14 +93,59 @@ nav a, .btn-neon {
   display: inline-block;
 }
 
-/* Efeito ao passar o mouse (Hover) */
+/* Hover do Menu: Efeito iluminação em volta da caixa */
 nav a:hover, .btn-neon:hover {
   border-color: var(--cyan-neon);
   color: var(--cyan-neon);
-  box-shadow: 0 0 10px var(--cyan-neon); /* Glow em volta do botão */
+  box-shadow: 0 0 10px var(--cyan-neon);
 }
 
-/* 6. Cartão de Serviços com Borda Iluminada */
+/* ==========================================================================
+   5. CONTAINER FLEXBOX (Imagem na Esquerda, Texto na Direita)
+   ========================================================================== */
+/* Container pai ajustado para Flexbox */
+.container {
+  display: flex;          /* Coloca os itens lado a lado em linha */
+  align-items: center;    /* Centraliza imagem e texto verticalmente */
+  gap: 20px;              /* Espaço de respiro entre a imagem e o texto */
+  margin-bottom: 20px;
+}
+
+/* FIX TAMANHO DAS IMAGENS DE CONTEÚDO / ÍCONES */
+.container img {
+  width: 100px;           /* Tamanho fixo da imagem ao lado do texto */
+  height: 100px;          /* Altura proporcional */
+  object-fit: contain;    /* Ajusta o ícone perfeitamente no espaço */
+  border-radius: 8px;     /* Bordas leves */
+  border: 1px solid rgba(0, 243, 255, 0.2);
+  background-color: rgba(3, 7, 18, 0.6);
+  padding: 8px;
+  transition: all 0.3s ease; /* Animação suave para o efeito hover */
+}
+
+/* EFEITO NEON GLOW NAS IMAGENS AO PASAR O MOUSE */
+.container img:hover {
+  border-color: var(--purple-neon);
+  /* Duplo brilho (Glow Interno e Externo) */
+  box-shadow: 0 0 12px var(--purple-neon), inset 0 0 8px rgba(188, 19, 254, 0.3);
+  transform: scale(1.05); /* Pequeno zoom no ícone */
+}
+
+/* O texto ocupa todo o espaço restante do lado direito */
+.container .text {
+  flex: 1;
+  font-size: 1rem;
+  color: var(--text-color); 
+}
+
+.container .icon {
+  font-size: 1.5rem;
+  color: var(--cyan-neon);
+}
+
+/* ==========================================================================
+   6. CARTÃO DE SERVIÇOS (SERVICE CARD)
+   ========================================================================== */
 .service-card {
   background: var(--card-bg);
   border: 1px solid #1f2937;
@@ -95,15 +153,18 @@ nav a:hover, .btn-neon:hover {
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 15px;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Efeito de elevação do cartão */
 .service-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 0 15px rgba(188, 19, 254, 0.25);
 }
 
-/* 7. Estilização dos campos de formulário */
+/* ==========================================================================
+   7. FORMULÁRIOS COM VISUAL NEON
+   ========================================================================== */
 .neon-form input, .neon-form textarea {
   width: 100%;
   background: #030712;
@@ -119,29 +180,24 @@ nav a:hover, .btn-neon:hover {
   border-color: var(--cyan-neon);
   box-shadow: 0 0 8px var(--cyan-neon);
 }
-.container {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 20px;
-  align-items: center;
-  margin-bottom: 20px;
-}
-.container .icon {
-  font-size: 1.5rem;
-  color: var(--cyan-neon);
-}
-.container .text {
-  font-size: 1rem;
-  color: var(--text-color); 
-}
-.container .btn-neon {
-  padding: 8px 16px;
-  border: 1px solid rgba(188, 19, 254, 0.4);
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-.container .btn-neon:hover {
-  border-color: var(--cyan-neon);
-  color: var(--cyan-neon);
-  box-shadow: 0 0 10px var(--cyan-neon);
+
+/* ==========================================================================
+   8. RESPONSIVIDADE (Ajustes para Celulares - max 600px)
+   ========================================================================== */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column; /* Empilha a logo e o menu no mobile */
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .container {
+    flex-direction: column;  /* Empilha a imagem em cima e o texto embaixo */
+    align-items: flex-start; /* Alinha o conteúdo à esquerda */
+  }
+
+  .container img {
+    width: 80px;            /* Tamanho levemente menor no celular */
+    height: 80px;
+  }
 }
